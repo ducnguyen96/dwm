@@ -63,6 +63,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *bravecmd[]  = { "brave", NULL };
 static const char *flameshot[] = {"flameshot", "gui", NULL};
+static const char *nvimcmd[] = { "st", "-e", "nvim" };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -79,7 +80,6 @@ static const Key keys[] = {
 	{ ALTKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,					              XK_q,      killclient,     {0} },
-	{ MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
@@ -105,6 +105,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY,                       XK_Print,  spawn,	       {.v = flameshot } },
+  { MODKEY|ShiftMask|ALTKEY,       XK_n,      spawn,        {.v = nvimcmd }},
 };
 
 /* button definitions */
